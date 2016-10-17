@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  micropost: 
+  org_name: MyText
+  org_url_tweet: MyText
+  org_feed_title: MyText
+  org_feed_url: MyText
+  org_feed_summary: MyText
+  org_feed_published: MyText
+
+two:
+  micropost: 
+  org_name: MyText
+  org_url_tweet: MyText
+  org_feed_title: MyText
+  org_feed_url: MyText
+  org_feed_summary: MyText
+  org_feed_published: MyText
