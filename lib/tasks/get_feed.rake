@@ -4,7 +4,8 @@ namespace :get_feed do
   # Feedjiraを利用した場合
   # http://feedjira.com/
   # https://github.com/feedjira/feedjira
-task :test1 => :environment do
+
+  task :test1 => :environment do
 
   organizations = Organization.all
 
@@ -52,19 +53,6 @@ task :test1 => :environment do
     
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

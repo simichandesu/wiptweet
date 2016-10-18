@@ -1,13 +1,10 @@
-# StaticPages#home
-
 <div class="col-md-8">
     <h1>Microposts</h1>
     
     <section class="content">
       <% @microposts.each do |post| %>
         <% if 0 != post.summary.index("RT") %>
-        <p><%= link_to post.title , post.organization %></p>
-        
+        <p><%= post.title %><br></p>
         <ul>
           <li><%= simple_format post.summary %></li>
           <li><%= post.url %></li><br>
@@ -17,5 +14,3 @@
     </section>
   
   </div>
-
-  <p>Find me in app/views/static_pages/home.html.erb</p>
