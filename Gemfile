@@ -50,4 +50,3 @@ group :development do
   gem 'spring'
   gem 'feedjira'
 end
-
