@@ -1,7 +1,7 @@
 class CreateMicroposts < ActiveRecord::Migration
   def change
     create_table :microposts do |t|
-      t.references :organization, index: true, foreign_key: true
+      t.references :organization, index: true
       t.text :title
       t.text :url
       t.text :summary
