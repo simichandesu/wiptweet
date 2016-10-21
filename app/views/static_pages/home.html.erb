@@ -4,7 +4,9 @@
     <h1>Microposts</h1>
     
     <section class="content">
+      
       <% @microposts.each do |post| %>
+      
         <% if 0 != post.summary.index("RT") %>
         <p><%= link_to post.title , post.organization %></p>
         
