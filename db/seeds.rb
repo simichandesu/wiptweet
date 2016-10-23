@@ -3,10 +3,6 @@
 
 # Initial Registration for Organization
 
-Organization.create(name: "USPTO",feed_url: "https://queryfeed.net/twitter?q=from%3Auspto&title-type=user-name-both&geocode=")
-Organization.create(name: "ipwatch",feed_url: "https://queryfeed.net/twitter?q=from%3Aipwatch&title-type=user-name-both&geocode=")
-Organization.create(name: "WIPO",feed_url: "https://queryfeed.net/twitter?q=from%3AWIPO&title-type=user-name-both&geocode=")
-Organization.create(name: "GOVUK",feed_url: "https://queryfeed.net/twitter?q=from%3AGOVUK&title-type=user-name-both&geocode=")
-Organization.create(name: "EPOorg",feed_url: "https://queryfeed.net/twitter?q=from%3AEPOorg&title-type=user-name-both&geocode=")
-Organization.create(name: "AIPLA",feed_url: "https://queryfeed.net/twitter?q=from%3AAIPLA&title-type=user-name-both&geocode=")
-Organization.create(name: "GLOVALIP_JPO",feed_url: "https://queryfeed.net/twitter?q=from%3AGLOVALIP_JPO&title-type=user-name-both&geocode=")
+Organization.create(name: "USPTO",latitude: "38.8015712",longitude: "-77.0660395",feed_url: "https://queryfeed.net/twitter?q=from%3Auspto&title-type=user-name-both&geocode=")
+Organization.create(name: "WIPO",latitude: "46.221905",longitude: "6.136669",feed_url: "https://queryfeed.net/twitter?q=from%3AWIPO&title-type=user-name-both&geocode=")
+Organization.create(name: "EPOorg",latitude: "52.042157",longitude: "4.336780",feed_url: "https://queryfeed.net/twitter?q=from%3AEPOorg&title-type=user-name-both&geocode=")

@@ -1,6 +1,6 @@
+<div class="col-md-6">
 # StaticPages#home
-
-<div class="col-md-8">
+# Find me in app/views/static_pages/home.html.erb    
     <h1>Microposts</h1>
     
     <section class="content">
@@ -18,7 +18,56 @@
         <% end %>
       <% end %>
     </section>
-  
 </div>
 
-  <p>Find me in app/views/static_pages/home.html.erb</p>
+<div class="col-md-6">
+  
+  <p id="notice"><%= notice %></p>
+
+  <h1>Listing Places</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @organizations.each do |organization| %>
+        <tr>
+          <td><%= organization.name %></td>
+          <td><%= organization.address %></td>
+          <td><%= organization.latitude %></td>
+          <td><%= organization.longitude %></td>
+          <td><%= link_to 'Show', organization %></td>
+          <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
+          <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Place', new_organization_path , class: "btn" %>
+
+  <div style='width: 800px;'>
+    <div id="map" style='width: 800px; height: 400px;'></div>
+  </div>
+
+  
+  <script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(<%= raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+  </script>
+  
+</div>
