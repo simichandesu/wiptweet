@@ -9,7 +9,7 @@ gem 'pg', group: :production
 gem 'feedjira', group: :production
 gem 'gmaps4rails', group: :produciton
 gem 'underscore-rails', group: :produciton
-
+gem 'kaminari', group: :production
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -54,6 +54,5 @@ group :development do
   gem 'feedjira'
   gem 'gmaps4rails'
   gem 'underscore-rails'
-  
+  gem 'kaminari'
 end
-

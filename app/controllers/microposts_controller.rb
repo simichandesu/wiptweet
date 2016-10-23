@@ -1,5 +1,6 @@
 class MicropostsController < ApplicationController
 
+
   def create
     if @micropost.save
       flash[:success] = "Micropost created!"
