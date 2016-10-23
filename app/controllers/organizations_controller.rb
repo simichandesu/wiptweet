@@ -4,8 +4,10 @@ class OrganizationsController < ApplicationController
 
   
   def show 
+     
    @organization = Organization.find(params[:id])
    @microposts = @organization.microposts
+   @microposts = @organization.microposts.order("id").page(params[:page]).per(5)
   end
 
 end
