@@ -36,6 +36,7 @@ class OrganizationsController < ApplicationController
 
   # GET /organizations/1/edit
   def edit
+    @organization = Organization.find(params[:id])
   end
 
   # POST /organizations
@@ -70,6 +71,7 @@ class OrganizationsController < ApplicationController
 
   # DELETE /organizations/1
   # DELETE /organizations/1.json
+  
   def destroy
     @organization.destroy
     respond_to do |format|
@@ -86,7 +88,7 @@ class OrganizationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def organization_params
-      params.require(:organization).permit(:name, :address, :latitude, :longitude)
+      params.require(:organization).permit(:name, :address, :latitude, :longitude, :twitter_url)
     end
 end
 

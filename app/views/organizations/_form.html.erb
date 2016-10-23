@@ -3,6 +3,8 @@
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
+    <%= f.label :twitter_url %><br>
+    <%= f.text_field :twitter_url %>
   </div>
   <div class="field">
     <%= f.label :address %><br>
@@ -12,8 +14,8 @@
     <div style='width: 800px;'>
       <div id="map" style='width: 800px; height: 400px;'></div>
     </div><!-- only if you need custom infoboxes -->
-    <%= f.text_field :latitude, readonly: true %>
-    <%= f.text_field :longitude,readonly: true %>
+    <%= f.text_field :latitude %>
+    <%= f.text_field :longitude %>
   </div>
   
   <div class="actions">

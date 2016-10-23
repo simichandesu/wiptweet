@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   
-  
   def show # 追加
   @user = User.find(params[:id])
   @microposts = Micropost.all
@@ -12,6 +11,7 @@ class UsersController < ApplicationController
       marker.lng organization.longitude
       marker.infowindow render_to_string(partial: "organizations/infowindow", locals: { organization: organization })
       # marker.json({title: organization.title})
+    end
   end
   
   def new
@@ -21,15 +21,16 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       flash[:success] = "Welcome to the WIPTweet!!"
-      redirect_to@user #redirect_to user_path(@user)と同じ
+      redirect_to @user #redirect_to user_path(@user)と同じ
     else
       render 'new'
     end
   end
   
-    def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    end
+  private
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end
