@@ -2,8 +2,16 @@ class UsersController < ApplicationController
   
   
   def show # 追加
-   @user = User.find(params[:id])
-   @microposts = Micropost.all
+  @user = User.find(params[:id])
+  @microposts = Micropost.all
+  @microposts = Micropost.order("id").page(params[:page]).per(5)
+  
+  @organizations = Organization.all
+  @hash = Gmaps4rails.build_markers(@organizations) do |organization, marker|
+      marker.lat organization.latitude
+      marker.lng organization.longitude
+      marker.infowindow render_to_string(partial: "organizations/infowindow", locals: { organization: organization })
+      # marker.json({title: organization.title})
   end
   
   def new
@@ -20,9 +28,8 @@ class UsersController < ApplicationController
     end
   end
   
-  private
-  
-  def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
   end
 end

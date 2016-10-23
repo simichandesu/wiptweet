@@ -1,28 +1,66 @@
 <div class="row">
 
-  <aside class="col-md-4">
+  <div class="col-md-2">
     <section class="user_info">
-      <h1>
+      <h2>
         <%= gravatar_for @user %>
         <%= @user.name %>
-      </h1>
+      </h2>
     </section>
-  </aside>
+  </div>
     
-  <div class="col-md-8">
+  <div class="col-md-4">
+   
+    <h1>Microposts</h1>
+   
     <section class="content">
-    <p><%= link_to "@uspto" , '/organizations/1' %></p>
-    <p><%= link_to "@ipwatch" , '/organizations/2' %></p>
-    <p><%= link_to "@WIPO" , '/organizations/3' %></p>
-    <p><%= link_to "@GOVUK" , '/organizations/4' %></p>
-    <p><%= link_to "@EPOorg" , '/organizations/5' %></p>
-    <p><%= link_to "@AIPLA" , '/organizations/6' %></p>
-    <p><%= link_to "@GLOVALIP_JPO" , '/organizations/7' %></p>
+    <%= paginate @microposts %>  
+      <% @microposts.each do |post| %>
+        
+        <% if 0 != post.summary.index("RT") %>
+        <p><%= link_to post.title , post.organization %></p>
+        
+        <ul>
+          <li><%= simple_format post.summary %></li>
+          <li><%= post.url %></li><br>
+        </ul>
+      
+        <% end %>
+      <% end %>
     </section>
+  <%= paginate @microposts %>
+
+</div>
+
+<div class="col-md-6">
   
+  <section class="content">
+    
+  <p id="notice"><%= notice %></p>
+
+  <h1>Microposts on MAP</h1>
+
+ 
+  <br>
+
+  <%= link_to 'New Place', new_organization_path , class: "btn" %>
+
+  <div style='width: 800px;'>
+    <div id="map" style='width: 800px; height: 400px;'></div>
   </div>
 
-    
-    
+  
+  <script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(<%= raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+  </script>
+  
+  </section>
+  
+</div>
     
 </div>

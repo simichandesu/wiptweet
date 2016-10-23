@@ -1,8 +1,9 @@
-<div class="col-md-6">
+<div class="col-md-7">
     
-    <h1>Microposts</h1>
+    <h1>Each Micropost</h1>
     
     <section class="content">
+      <%= paginate @microposts %>
       <% @microposts.each do |post| %>
         <% if 0 != post.summary.index("RT") %>
         <p><%= link_to post.title , post.organization %></p>
@@ -11,12 +12,15 @@
           <li><%= post.url %></li><br>
         </ul>
         <% end %>
-      
       <% end %>
+      <%= paginate @microposts %>
     </section>
 </div>
 
-<div class="col-md-6">
+<div class="col-md-5">
+  
+  <h1>Place on Map</h1>
+  
   <div style='width: 800px;'>
     <div id="map" style='width: 800px; height: 400px;'></div>
   </div>
