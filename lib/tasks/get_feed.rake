@@ -55,7 +55,6 @@ namespace :get_feed do
 end
 
 
-
   # 標準のRSSライブラリー利用した場合
   task :test2 => :environment do
 
